@@ -1,0 +1,605 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLÉGANCE | Our Perfumes</title>
+
+    <meta name="description" content="Discover the luxurious perfume collection by ÉLÉGANCE. Explore our women's, men's and unisex fragrances.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #f5f0e6;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            height: 78px;
+            background: #050505;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            border-bottom: 1px solid #2c2415;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 27px;
+            letter-spacing: 4px;
+            color: #d4af37;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #f5f0e6;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        /* PAGE HERO */
+
+        .page-hero {
+            height: 420px;
+            background:
+                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+                url("https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1800&q=90");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-family: Georgia, serif;
+            font-size: 58px;
+            letter-spacing: 5px;
+            margin-bottom: 18px;
+        }
+
+        .hero-content p {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 5px;
+        }
+
+        /* INTRO */
+
+        .intro {
+            text-align: center;
+            padding: 75px 20px 45px;
+        }
+
+        .intro h2 {
+            font-family: Georgia, serif;
+            font-size: 38px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 2px;
+            background: #d4af37;
+            margin: 0 auto 20px;
+        }
+
+        .intro p {
+            max-width: 650px;
+            margin: auto;
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* CATEGORY BUTTONS */
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 15px auto 55px;
+        }
+
+        .category-btn {
+            background: transparent;
+            border: 1px solid #555;
+            color: #eee;
+            padding: 12px 25px;
+            letter-spacing: 2px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: #d4af37;
+            border-color: #d4af37;
+            color: #080808;
+        }
+
+        /* PERFUME GRID */
+
+        .perfume-grid {
+            width: 86%;
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            padding-bottom: 90px;
+        }
+
+        .perfume-card {
+            background: #111;
+            border: 1px solid #262626;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .perfume-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+        }
+
+        .perfume-image {
+            height: 400px;
+            overflow: hidden;
+            background: #151515;
+        }
+
+        .perfume-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .perfume-card:hover .perfume-image img {
+            transform: scale(1.06);
+        }
+
+        .perfume-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .category {
+            color: #d4af37;
+            font-size: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .perfume-info h3 {
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+
+        .perfume-info p {
+            color: #999;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .details-btn {
+            display: inline-block;
+            padding: 11px 23px;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .details-btn:hover {
+            background: #d4af37;
+            color: #080808;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #050505;
+            border-top: 1px solid #29210f;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        footer .footer-logo {
+            font-family: Georgia, serif;
+            color: #d4af37;
+            font-size: 25px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #777;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 0 4%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .perfume-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-hero {
+                height: 330px;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            .intro h2 {
+                font-size: 30px;
+            }
+
+            .perfume-grid {
+                grid-template-columns: 1fr;
+                width: 90%;
+            }
+
+            .perfume-image {
+                height: 420px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            ÉLÉGANCE
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="perfume.html">Home</a>
+            </li>
+
+            <li>
+                <a href="perfumes.html">Perfumes</a>
+            </li>
+
+            <li>
+                <a href="#">Collections</a>
+            </li>
+
+            <li>
+                <a href="#">About Us</a>
+            </li>
+
+            <li>
+                <a href="#">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- PAGE HERO -->
+
+    <section class="page-hero">
+
+        <div class="hero-content">
+
+            <h1>Our Perfumes</h1>
+
+            <p>THE ÉLÉGANCE COLLECTION</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTRODUCTION -->
+
+    <section class="intro">
+
+        <h2>Discover Your Signature Scent</h2>
+
+        <div class="gold-line"></div>
+
+        <p>
+            Explore a world of refined fragrances crafted to express
+            elegance, confidence and individuality. Discover scents
+            created for every personality and every unforgettable moment.
+        </p>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+        <button class="category-btn active">
+            ALL PERFUMES
+        </button>
+
+        <button class="category-btn">
+            WOMEN
+        </button>
+
+        <button class="category-btn">
+            MEN
+        </button>
+
+        <button class="category-btn">
+            UNISEX
+        </button>
+
+    </div>
+
+
+    <!-- PERFUME COLLECTION -->
+
+    <section class="perfume-grid">
+
+
+        <!-- PERFUME 1 -->
+
+        <div class="perfume-card">
+
+            <div class="perfume-image">
+
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=90" alt="Golden Rose perfume">
+
+            </div>
+
+            <div class="perfume-info">
+
+                <div class="category">WOMEN</div>
+
+                <h3>Golden Rose</h3>
+
+                <p>
+                    A graceful fragrance with a sophisticated
+                    and beautifully feminine character.
+                </p>
+
+                <a href="#" class="details-btn">VIEW DETAILS</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERFUME 2 -->
+
+        <div class="perfume-card">
+
+            <div class="perfume-image">
+
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=800&q=90" alt="Noir Elite perfume">
+
+            </div>
+
+            <div class="perfume-info">
+
+                <div class="category">MEN</div>
+
+                <h3>Noir Elite</h3>
+
+                <p>
+                    A bold and mysterious fragrance designed
+                    for confidence and timeless style.
+                </p>
+
+                <a href="#" class="details-btn">VIEW DETAILS</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERFUME 3 -->
+
+        <div class="perfume-card">
+
+            <div class="perfume-image">
+
+                <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=800&q=90" alt="Royal Mist perfume">
+
+            </div>
+
+            <div class="perfume-info">
+
+                <div class="category">UNISEX</div>
+
+                <h3>Royal Mist</h3>
+
+                <p>
+                    An elegant blend created for those who
+                    appreciate modern luxury and individuality.
+                </p>
+
+                <a href="#" class="details-btn">VIEW DETAILS</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERFUME 4 -->
+
+        <div class="perfume-card">
+
+            <div class="perfume-image">
+
+                <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=800&q=90" alt="Velvet Bloom perfume">
+
+            </div>
+
+            <div class="perfume-info">
+
+                <div class="category">WOMEN</div>
+
+                <h3>Velvet Bloom</h3>
+
+                <p>
+                    Soft, captivating and elegant — a fragrance
+                    designed to leave a beautiful impression.
+                </p>
+
+                <a href="#" class="details-btn">VIEW DETAILS</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERFUME 5 -->
+
+        <div class="perfume-card">
+
+            <div class="perfume-image">
+
+                <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=800&q=90" alt="Imperial perfume">
+
+            </div>
+
+            <div class="perfume-info">
+
+                <div class="category">MEN</div>
+
+                <h3>Imperial</h3>
+
+                <p>
+                    A powerful and refined scent created for
+                    the modern gentleman.
+                </p>
+
+                <a href="#" class="details-btn">VIEW DETAILS</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PERFUME 6 -->
+
+        <div class="perfume-card">
+
+            <div class="perfume-image">
+
+                <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=800&q=90" alt="Signature perfume">
+
+            </div>
+
+            <div class="perfume-info">
+
+                <div class="category">UNISEX</div>
+
+                <h3>Signature</h3>
+
+                <p>
+                    A timeless fragrance with a distinctive
+                    character for unforgettable moments.
+                </p>
+
+                <a href="#" class="details-btn">VIEW DETAILS</a>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ÉLÉGANCE
+        </div>
+
+        <p>
+            Crafted for those who appreciate timeless luxury.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
+```

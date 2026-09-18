@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ÉLÉGANCE | Luxury Perfumes</title>
+
+
+    <style>
+
+        /* =========================
+           BASIC SETTINGS
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f5f0;
+            color: #222;
+        }
+
+
+        /* =========================
+           NAVIGATION BAR
+        ========================= */
+
+        nav {
+            width: 100%;
+            height: 78px;
+
+            background: #111;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            z-index: 100;
+        }
+
+
+        .logo {
+            color: #d4af37;
+
+            font-size: 28px;
+            font-weight: bold;
+
+            letter-spacing: 4px;
+        }
+
+
+        .nav-links {
+            display: flex;
+
+            gap: 35px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+
+        /* =========================
+           HERO BANNER
+        ========================= */
+
+        .hero {
+            width: 100%;
+            height: 720px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .slide {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            opacity: 0;
+
+            transition: opacity 1s ease;
+        }
+
+
+        .slide.active {
+            opacity: 1;
+        }
+
+
+        /* Dark overlay */
+
+        .slide::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.45);
+        }
+
+
+        /* =========================
+           BANNER PICTURES
+        ========================= */
+
+        .slide1 {
+
+            background-image: url(
+                "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1800&q=90"
+            );
+
+        }
+
+
+        .slide2 {
+
+            background-image: url(
+                "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=1800&q=90"
+            );
+
+        }
+
+
+        .slide3 {
+
+            background-image: url(
+                "https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=1800&q=90"
+            );
+
+        }
+
+
+        /* =========================
+           BANNER CONTENT
+        ========================= */
+
+        .hero-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            color: white;
+
+            max-width: 850px;
+
+            padding: 20px;
+        }
+
+
+        .hero-content p {
+
+            font-size: 15px;
+
+            letter-spacing: 6px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .hero-content h1 {
+
+            font-size: 64px;
+
+            line-height: 1.15;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .hero-content h1 span {
+
+            color: #d4af37;
+
+        }
+
+
+        .hero-subtitle {
+
+            font-size: 18px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           SHOP BUTTON
+        ========================= */
+
+        .shop-btn {
+
+            display: inline-block;
+
+            padding: 16px 38px;
+
+            background: #d4af37;
+
+            color: #111;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            transition: 0.3s;
+        }
+
+
+        .shop-btn:hover {
+
+            background: white;
+
+        }
+
+
+        /* =========================
+           BANNER ARROWS
+        ========================= */
+
+        .hero-arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 52px;
+            height: 52px;
+
+            border: 1px solid white;
+
+            background: rgba(0, 0, 0, 0.3);
+
+            color: white;
+
+            font-size: 28px;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            transition: 0.3s;
+        }
+
+
+        .hero-arrow:hover {
+
+            background: #d4af37;
+
+            color: #111;
+        }
+
+
+        .hero-prev {
+
+            left: 30px;
+
+        }
+
+
+        .hero-next {
+
+            right: 30px;
+
+        }
+
+
+        /* =========================
+           BANNER DOTS
+        ========================= */
+
+        .hero-dots {
+
+            position: absolute;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            gap: 12px;
+
+            z-index: 10;
+        }
+
+
+        .hero-dot {
+
+            width: 11px;
+            height: 11px;
+
+            border-radius: 50%;
+
+            border: 2px solid white;
+
+            background: transparent;
+
+            cursor: pointer;
+        }
+
+
+        .hero-dot.active {
+
+            background: #d4af37;
+
+            border-color: #d4af37;
+        }
+
+
+        /* =========================
+           PERFUME COLLECTION
+        ========================= */
+
+        .collection {
+
+            padding: 90px 6%;
+
+            background: #f8f5f0;
+
+            text-align: center;
+        }
+
+
+        .collection-title {
+
+            font-size: 40px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .collection-subtitle {
+
+            color: #777;
+
+            font-size: 15px;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* =========================
+           COLLECTION SLIDER
+        ========================= */
+
+        .collection-wrapper {
+
+            position: relative;
+
+            max-width: 1250px;
+
+            margin: auto;
+
+            overflow: hidden;
+
+            padding: 10px;
+        }
+
+
+        .collection-track {
+
+            display: flex;
+
+            gap: 25px;
+
+            transition: transform 0.5s ease;
+        }
+
+
+        /* =========================
+           PERFUME CARDS
+        ========================= */
+
+        .perfume-card {
+
+            min-width: calc((100% - 50px) / 3);
+
+            background: white;
+
+            overflow: hidden;
+
+            transition: 0.4s;
+        }
+
+
+        .perfume-card:hover {
+
+            transform: translateY(-8px);
+
+        }
+
+
+        .perfume-card img {
+
+            width: 100%;
+
+            height: 390px;
+
+            object-fit: cover;
+
+            display: block;
+        }
+
+
+        /* =========================
+           COLLECTION ARROWS
+        ========================= */
+
+        .collection-arrow {
+
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 48px;
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #111;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 5;
+
+            transition: 0.3s;
+        }
+
+
+        .collection-arrow:hover {
+
+            background: #d4af37;
+
+            color: #111;
+        }
+
+
+        .collection-prev {
+
+            left: 15px;
+
+        }
+
+
+        .collection-next {
+
+            right: 15px;
+
+        }
+
+
+        /* =========================
+           COLLECTION DOTS
+        ========================= */
+
+        .collection-dots {
+
+            margin-top: 30px;
+        }
+
+
+        .collection-dot {
+
+            display: inline-block;
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #bbb;
+
+            margin: 0 5px;
+
+            cursor: pointer;
+        }
+
+
+        .collection-dot.active {
+
+            background: #d4af37;
+
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+
+            nav {
+
+                padding: 0 4%;
+
+                height: 70px;
+
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+
+                letter-spacing: 2px;
+
+            }
+
+
+            .nav-links {
+
+                gap: 12px;
+
+            }
+
+
+            .nav-links a {
+
+                font-size: 10px;
+
+            }
+
+
+            .hero {
+
+                height: 600px;
+
+            }
+
+
+            .hero-content h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .hero-content p {
+
+                font-size: 11px;
+
+                letter-spacing: 3px;
+
+            }
+
+
+            .hero-subtitle {
+
+                font-size: 14px;
+
+            }
+
+
+            .hero-prev {
+
+                left: 10px;
+
+            }
+
+
+            .hero-next {
+
+                right: 10px;
+
+            }
+
+
+            .collection {
+
+                padding: 60px 5%;
+
+            }
+
+
+            .collection-title {
+
+                font-size: 30px;
+
+            }
+
+
+            .perfume-card {
+
+                min-width: 100%;
+
+            }
+
+
+            .perfume-card img {
+
+                height: 430px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+            ÉLÉGANCE
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="home perfume.html">Home</a>
+            </li>
+
+            <li>
+                <a href="elegance perfume.html">Perfumes</a></a>
+            </li>
+
+            <li>
+                <a href="#">Collections</a>
+            </li>
+
+            <li>
+                <a href="#">About Us</a>
+            </li>
+
+            <li>
+                <a href="#">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         BIG HERO BANNER
+    ========================= -->
+
+    <section class="hero">
+
+
+        <!-- SLIDE 1 -->
+
+        <div class="slide slide1 active">
+
+            <div class="hero-content">
+
+                <p>
+                    THE ART OF FRAGRANCE
+                </p>
+
+                <h1>
+                    Discover Your
+                    <span>Signature Scent</span>
+                </h1>
+
+                <div class="hero-subtitle">
+                    Luxury fragrances crafted to leave a lasting impression.
+                </div>
+
+                <a href="#" class="shop-btn">
+                    SHOP NOW
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SLIDE 2 -->
+
+        <div class="slide slide2">
+
+            <div class="hero-content">
+
+                <p>
+                    PREMIUM COLLECTION
+                </p>
+
+                <h1>
+                    Elegance
+                    <span>In Every Drop</span>
+                </h1>
+
+                <div class="hero-subtitle">
+                    Discover fragrances made for unforgettable moments.
+                </div>
+
+                <a href="#" class="shop-btn">
+                    EXPLORE NOW
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SLIDE 3 -->
+
+        <div class="slide slide3">
+
+            <div class="hero-content">
+
+                <p>
+                    NEW ARRIVALS
+                </p>
+
+                <h1>
+                    Your Scent,
+                    <span>Your Story</span>
+                </h1>
+
+                <div class="hero-subtitle">
+                    Experience the beauty of luxury fragrance.
+                </div>
+
+                <a href="#" class="shop-btn">
+                    DISCOVER MORE
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BANNER LEFT ARROW -->
+
+        <button
+            class="hero-arrow hero-prev"
+            onclick="changeHeroSlide(-1)">
+            &#10094;
+        </button>
+
+
+        <!-- BANNER RIGHT ARROW -->
+
+        <button
+            class="hero-arrow hero-next"
+            onclick="changeHeroSlide(1)">
+            &#10095;
+        </button>
+
+
+        <!-- BANNER DOTS -->
+
+        <div class="hero-dots">
+
+            <span
+                class="hero-dot active"
+                onclick="showHeroSlide(0)">
+            </span>
+
+            <span
+                class="hero-dot"
+                onclick="showHeroSlide(1)">
+            </span>
+
+            <span
+                class="hero-dot"
+                onclick="showHeroSlide(2)">
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PERFUME COLLECTION
+    ========================= -->
+
+    <section class="collection">
+
+
+        <h2 class="collection-title">
+            Our Signature Collection
+        </h2>
+
+
+        <p class="collection-subtitle">
+            Explore our finest luxury fragrances
+        </p>
+
+
+
+        <div class="collection-wrapper">
+
+
+            <div
+                class="collection-track"
+                id="collectionTrack">
+
+
+                <!-- PERFUME 1 -->
+
+                <div class="perfume-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=90"
+                        alt="Luxury Perfume"
+                    >
+
+                </div>
+
+
+
+                <!-- PERFUME 2 -->
+
+                <div class="perfume-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=90"
+                        alt="Premium Perfume"
+                    >
+
+                </div>
+
+
+
+                <!-- PERFUME 3 -->
+
+                <div class="perfume-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=700&q=90"
+                        alt="Luxury Fragrance"
+                    >
+
+                </div>
+
+
+
+                <!-- PERFUME 4 -->
+
+                <div class="perfume-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=700&q=90"
+                        alt="Elegant Perfume"
+                    >
+
+                </div>
+
+
+
+                <!-- PERFUME 5 -->
+
+                <div class="perfume-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=90"
+                        alt="Luxury Perfume Bottle"
+                    >
+
+                </div>
+
+
+
+                <!-- PERFUME 6 -->
+
+                <div class="perfume-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?auto=format&fit=crop&w=700&q=90"
+                        alt="Luxury Fragrance Bottle"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- COLLECTION LEFT ARROW -->
+
+            <button
+                class="collection-arrow collection-prev"
+                onclick="moveCollection(-1)">
+                &#10094;
+            </button>
+
+
+            <!-- COLLECTION RIGHT ARROW -->
+
+            <button
+                class="collection-arrow collection-next"
+                onclick="moveCollection(1)">
+                &#10095;
+            </button>
+
+
+        </div>
+
+
+
+        <!-- COLLECTION DOTS -->
+
+        <div class="collection-dots">
+
+            <span
+                class="collection-dot active"
+                onclick="goToCollection(0)">
+            </span>
+
+            <span
+                class="collection-dot"
+                onclick="goToCollection(1)">
+            </span>
+
+            <span
+                class="collection-dot"
+                onclick="goToCollection(2)">
+            </span>
+
+            <span
+                class="collection-dot"
+                onclick="goToCollection(3)">
+            </span>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+
+        /* =========================
+           HERO SLIDER
+        ========================= */
+
+        let heroIndex = 0;
+
+        const heroSlides =
+            document.querySelectorAll(".slide");
+
+        const heroDots =
+            document.querySelectorAll(".hero-dot");
+
+
+        function showHeroSlide(index) {
+
+            heroSlides.forEach(slide => {
+
+                slide.classList.remove("active");
+
+            });
+
+
+            heroDots.forEach(dot => {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            heroIndex = index;
+
+
+            heroSlides[heroIndex]
+                .classList.add("active");
+
+
+            heroDots[heroIndex]
+                .classList.add("active");
+
+        }
+
+
+        function changeHeroSlide(direction) {
+
+            heroIndex += direction;
+
+
+            if (heroIndex >= heroSlides.length) {
+
+                heroIndex = 0;
+
+            }
+
+
+            if (heroIndex < 0) {
+
+                heroIndex = heroSlides.length - 1;
+
+            }
+
+
+            showHeroSlide(heroIndex);
+
+        }
+
+
+        /* Automatic Banner */
+
+        setInterval(function() {
+
+            changeHeroSlide(1);
+
+        }, 5000);
+
+
+
+        /* =========================
+           PERFUME COLLECTION SLIDER
+        ========================= */
+
+        let collectionPosition = 0;
+
+
+        const collectionTrack =
+            document.getElementById("collectionTrack");
+
+
+        const collectionDots =
+            document.querySelectorAll(".collection-dot");
+
+
+        const totalCollectionSlides = 4;
+
+
+        function updateCollection() {
+
+
+            const card =
+                document.querySelector(".perfume-card");
+
+
+            const cardWidth =
+                card.offsetWidth + 25;
+
+
+            collectionTrack.style.transform =
+                `translateX(-${collectionPosition * cardWidth}px)`;
+
+
+            collectionDots.forEach(dot => {
+
+                dot.classList.remove("active");
+
+            });
+
+
+            collectionDots[collectionPosition]
+                .classList.add("active");
+
+        }
+
+
+        function moveCollection(direction) {
+
+
+            collectionPosition += direction;
+
+
+            if (collectionPosition < 0) {
+
+                collectionPosition =
+                    totalCollectionSlides - 1;
+
+            }
+
+
+            if (collectionPosition >= totalCollectionSlides) {
+
+                collectionPosition = 0;
+
+            }
+
+
+            updateCollection();
+
+        }
+
+
+        function goToCollection(position) {
+
+            collectionPosition = position;
+
+            updateCollection();
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
